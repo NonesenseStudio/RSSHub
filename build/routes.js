@@ -1256,6 +1256,45 @@ export default {
     "url": "bandbbs.cn",
     "lang": "zh-CN"
   },
+  "bbcnewslabs": {
+    "routes": {
+      "/news": {
+        "path": "/news",
+        "categories": [
+          "programming"
+        ],
+        "example": "/bbcnewslabs/news",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "bbcnewslabs.co.uk/",
+              "www.bbc.co.uk/rdnewslabs/news/"
+            ]
+          }
+        ],
+        "name": "News",
+        "maintainers": [
+          "elxy"
+        ],
+        "url": "www.bbc.co.uk/rdnewslabs/news/",
+        "location": "news.ts",
+        "module": () => import('@/routes/bbcnewslabs/news.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "BBC News Labs",
+    "url": "www.bbc.co.uk/rdnewslabs",
+    "lang": "en"
+  },
   "bestblogs": {
     "routes": {
       "/feeds/:category?": {
@@ -2606,30 +2645,6 @@ export default {
     ],
     "lang": "zh-CN"
   },
-  "ele.me": {
-    "routes": {
-      "/open/announce": {
-        "path": "/open/announce",
-        "categories": [
-          "programming"
-        ],
-        "example": "/ele.me/open/announce",
-        "name": "商家开放平台公告",
-        "maintainers": [
-          "phantomk"
-        ],
-        "location": "open/announce.ts",
-        "module": () => import('@/routes/ele.me/open/announce.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "饿了么",
-    "url": "www.ele.me",
-    "categories": [
-      "programming"
-    ],
-    "lang": "zh-CN"
-  },
   "englishhome": {
     "routes": {
       "/": {
@@ -3739,116 +3754,6 @@ export default {
     "name": "Kmoe",
     "url": "kzo.moe",
     "lang": "zh-CN"
-  },
-  "last.fm": {
-    "routes": {
-      "/loved/:user": {
-        "path": "/loved/:user",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/last.fm/loved/yeFoenix",
-        "parameters": {
-          "user": "Last.fm 用户名"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "LASTFM_API_KEY",
-              "optional": false,
-              "description": "Last.fm API key"
-            }
-          ]
-        },
-        "radar": [
-          {
-            "source": [
-              "www.last.fm/user/:user",
-              "www.last.fm/user/:user/*"
-            ]
-          }
-        ],
-        "name": "用户 Love 记录",
-        "maintainers": [
-          "hoilc"
-        ],
-        "location": "loved.ts",
-        "module": () => import('@/routes/last.fm/loved.ts')
-      },
-      "/recent/:user": {
-        "path": "/recent/:user",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/last.fm/recent/yeFoenix",
-        "parameters": {
-          "user": "Last.fm 用户名"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "LASTFM_API_KEY",
-              "optional": false,
-              "description": "Last.fm API key"
-            }
-          ]
-        },
-        "radar": [
-          {
-            "source": [
-              "www.last.fm/user/:user",
-              "www.last.fm/user/:user/*"
-            ]
-          }
-        ],
-        "name": "用户播放记录",
-        "maintainers": [
-          "hoilc"
-        ],
-        "location": "recent.ts",
-        "module": () => import('@/routes/last.fm/recent.ts')
-      },
-      "/top/:country?": {
-        "path": "/top/:country?",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/last.fm/top/spain",
-        "parameters": {
-          "country": "国家或地区, 需要符合`ISO 3166-1`的英文全称, 可参考`https://zh.wikipedia.org/wiki/ISO_3166-1二位字母代码#正式分配代码`"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "LASTFM_API_KEY",
-              "optional": false,
-              "description": "Last.fm API key"
-            }
-          ]
-        },
-        "radar": [
-          {
-            "source": [
-              "www.last.fm/charts"
-            ],
-            "target": "/top"
-          }
-        ],
-        "name": "站内 Top 榜单",
-        "maintainers": [
-          "hoilc"
-        ],
-        "location": "top.ts",
-        "module": () => import('@/routes/last.fm/top.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "Last.fm",
-    "url": "www.last.fm",
-    "categories": [
-      "multimedia"
-    ],
-    "lang": "en"
   },
   "lens": {
     "routes": {
@@ -6856,48 +6761,6 @@ export default {
     "name": "數位時代 BusinessNext",
     "url": "bnext.com.tw",
     "lang": "zh-TW"
-  },
-  "bse": {
-    "routes": {
-      "/:category?/:keyword?": {
-        "path": "/:category?/:keyword?",
-        "categories": [
-          "finance"
-        ],
-        "example": "/bse",
-        "parameters": {
-          "category": "分类，见下表，默认为本所要闻",
-          "keyword": "关键字，默认为空"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "bse.cn/"
-            ]
-          }
-        ],
-        "name": "栏目",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "url": "bse.cn/",
-        "description": "| 本所要闻        | 人才招聘 | 采购信息 | 业务通知   |\n| --------------- | -------- | -------- | ---------- |\n| important\\_news | recruit  | purchase | news\\_list |\n\n| 法律法规  | 公开征求意见    | 部门规章         | 发行融资   |\n| --------- | --------------- | ---------------- | ---------- |\n| law\\_list | public\\_opinion | regulation\\_list | fxrz\\_list |\n\n| 持续监管   | 交易管理   | 市场管理   | 上市委会议公告  |\n| ---------- | ---------- | ---------- | --------------- |\n| cxjg\\_list | jygl\\_list | scgl\\_list | meeting\\_notice |\n\n| 上市委会议结果公告 | 上市委会议变更公告 | 并购重组委会议公告 |\n| ------------------ | ------------------ | ------------------ |\n| meeting\\_result    | meeting\\_change    | bgcz\\_notice       |\n\n| 并购重组委会议结果公告 | 并购重组委会议变更公告 | 终止审核           | 注册结果      |\n| ---------------------- | ---------------------- | ------------------ | ------------- |\n| bgcz\\_result           | bgcz\\_change           | termination\\_audit | audit\\_result |",
-        "location": "index.ts",
-        "module": () => import('@/routes/bse/index.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "北京证券交易所",
-    "url": "bse.cn",
-    "lang": "zh-CN"
   },
   "cloudflarestatus": {
     "routes": {
@@ -11820,6 +11683,48 @@ export default {
     "url": "www.aicaijing.com",
     "lang": "zh-CN"
   },
+  "bse": {
+    "routes": {
+      "/:category?/:keyword?": {
+        "path": "/:category?/:keyword?",
+        "categories": [
+          "finance"
+        ],
+        "example": "/bse",
+        "parameters": {
+          "category": "分类，见下表，默认为本所要闻",
+          "keyword": "关键字，默认为空"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "bse.cn/"
+            ]
+          }
+        ],
+        "name": "栏目",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "url": "bse.cn/",
+        "description": "| 本所要闻        | 人才招聘 | 采购信息 | 业务通知   |\n| --------------- | -------- | -------- | ---------- |\n| important\\_news | recruit  | purchase | news\\_list |\n\n| 法律法规  | 公开征求意见    | 部门规章         | 发行融资   |\n| --------- | --------------- | ---------------- | ---------- |\n| law\\_list | public\\_opinion | regulation\\_list | fxrz\\_list |\n\n| 持续监管   | 交易管理   | 市场管理   | 上市委会议公告  |\n| ---------- | ---------- | ---------- | --------------- |\n| cxjg\\_list | jygl\\_list | scgl\\_list | meeting\\_notice |\n\n| 上市委会议结果公告 | 上市委会议变更公告 | 并购重组委会议公告 |\n| ------------------ | ------------------ | ------------------ |\n| meeting\\_result    | meeting\\_change    | bgcz\\_notice       |\n\n| 并购重组委会议结果公告 | 并购重组委会议变更公告 | 终止审核           | 注册结果      |\n| ---------------------- | ---------------------- | ------------------ | ------------- |\n| bgcz\\_result           | bgcz\\_change           | termination\\_audit | audit\\_result |",
+        "location": "index.ts",
+        "module": () => import('@/routes/bse/index.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "北京证券交易所",
+    "url": "bse.cn",
+    "lang": "zh-CN"
+  },
   "cbre": {
     "routes": {
       "/research/:site?/:section?": {
@@ -15345,6 +15250,9 @@ export default {
         "maintainers": [
           "jin1218scu"
         ],
+        "features": {
+          "requirePuppeteer": true
+        },
         "location": "index.ts",
         "module": () => import('@/routes/im2maker/index.ts')
       }
@@ -16951,6 +16859,64 @@ export default {
   },
   "nanhua": {
     "routes": {
+      "/index-research/:category?": {
+        "path": "/index-research/:category?",
+        "categories": [
+          "finance"
+        ],
+        "example": "/nanhua/index-research/daily",
+        "parameters": {
+          "category": {
+            "description": "报告类型",
+            "default": "daily",
+            "options": [
+              {
+                "value": "daily",
+                "label": "指数日报"
+              },
+              {
+                "value": "weekly",
+                "label": "指数周报"
+              },
+              {
+                "value": "quarterly",
+                "label": "指数季报"
+              }
+            ]
+          }
+        },
+        "radar": [
+          {
+            "title": "指数日报",
+            "source": [
+              "www.nanhua.net/subpage/research/nawaaindex/indexresearch/index-daily.html"
+            ],
+            "target": "/index-research/daily"
+          },
+          {
+            "title": "指数周报",
+            "source": [
+              "www.nanhua.net/subpage/research/nawaaindex/indexresearch/index-weekly.html"
+            ],
+            "target": "/index-research/weekly"
+          },
+          {
+            "title": "指数季报",
+            "source": [
+              "www.nanhua.net/subpage/research/nawaaindex/indexresearch/seminar.html"
+            ],
+            "target": "/index-research/quarterly"
+          }
+        ],
+        "name": "南华指数研究",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "url": "www.nanhua.net/subpage/research/nawaaindex/indexresearch/index-daily.html",
+        "description": "报告正文为 PDF，条目链接直接指向 PDF 文件。",
+        "location": "index-research.ts",
+        "module": () => import('@/routes/nanhua/index-research.ts')
+      },
       "/report/:type1/:type2": {
         "path": "/report/:type1/:type2",
         "categories": [
@@ -17239,6 +17205,39 @@ export default {
     "apiRoutes": {},
     "name": "OpenAlex",
     "url": "openalex.org",
+    "lang": "en"
+  },
+  "openwrt": {
+    "routes": {
+      "/releases/:brand/:model": {
+        "path": "/releases/:brand/:model",
+        "categories": [
+          "program-update"
+        ],
+        "example": "/openwrt/releases/xiaomi/xiaomi_redmi_router_ac2100",
+        "parameters": {
+          "brand": "Device Model, can be found in url of `Table of Hardware` -> `Device Page`",
+          "model": "Same as above"
+        },
+        "radar": [
+          {
+            "source": [
+              "openwrt.org/toh/:brand/:model"
+            ],
+            "target": "/releases/:brand/:model"
+          }
+        ],
+        "name": "Releases",
+        "maintainers": [
+          "DIYgod"
+        ],
+        "location": "releases.ts",
+        "module": () => import('@/routes/openwrt/releases.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "OpenWrt",
+    "url": "openwrt.org",
     "lang": "en"
   },
   "patchwork.kernel.org": {
@@ -20115,6 +20114,31 @@ export default {
     "name": "4Gamers",
     "url": "www.4gamers.com.tw",
     "lang": "zh-TW"
+  },
+  "500px": {
+    "routes": {
+      "/tribe/set/:id": {
+        "path": "/tribe/set/:id",
+        "categories": [
+          "picture"
+        ],
+        "view": 2,
+        "example": "/500px/tribe/set/f5de0b8aa6d54ec486f5e79616418001",
+        "parameters": {
+          "id": "部落 ID"
+        },
+        "name": "部落影集",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "location": "tribe-set.tsx",
+        "module": () => import('@/routes/500px/tribe-set.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "500px 摄影社区",
+    "url": "500px.com.cn",
+    "lang": "zh-CN"
   },
   "8kcos": {
     "routes": {
@@ -27476,69 +27500,6 @@ export default {
     "url": "69shuba.cx",
     "lang": "zh-CN"
   },
-  "6park": {
-    "routes": {
-      "/index/:id?/:type?/:keyword?": {
-        "path": "/index/:id?/:type?/:keyword?",
-        "name": "首页",
-        "maintainers": [
-          "nczitzk",
-          "cscnk52"
-        ],
-        "example": "/6park/index",
-        "parameters": {
-          "id": "分站，见下表，默认为史海钩沉",
-          "type": "类型，可选值为 gold、type，默认为空",
-          "keyword": "关键词，可选，默认为空"
-        },
-        "radar": [
-          {
-            "source": [
-              "club.6parkbbs.com/:id/index.php",
-              "club.6parkbbs.com/"
-            ],
-            "target": "/index/:id?"
-          }
-        ],
-        "description": "| 婚姻家庭 | 魅力时尚 | 女性频道 | 生活百态 | 美食厨房 | 非常影音 | 车迷沙龙 | 游戏天地 | 卡通漫画 | 体坛纵横 | 运动健身 | 电脑前线 | 数码家电 | 旅游风向 | 摄影部落 | 奇珍异宝 | 笑口常开 | 娱乐八卦 | 吃喝玩乐 | 文化长廊 | 军事纵横 | 百家论坛 | 科技频道 | 爱子情怀 | 健康人生 | 博论天下 | 史海钩沉 | 网际谈兵 | 经济观察 | 谈股论金 | 杂论闲侃 | 唯美乐园 | 学习园地 | 命理玄机 | 宠物情缘 | 网络歌坛 | 音乐殿堂 | 情感世界 |\n| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |\n| life9    | life1    | chan10   | life2    | life6    | fr       | enter7   | enter3   | enter6   | enter5   | sport    | know1    | chan6    | life7    | chan8    | page     | enter1   | enter8   | netstar  | life10   | nz       | other    | chan2    | chan5    | life5    | bolun    | chan1    | military | finance  | chan4    | pk       | gz1      | gz2      | gz3      | life8    | chan7    | enter4   | life3    |",
-        "location": "index.ts",
-        "module": () => import('@/routes/6park/index.ts')
-      },
-      "/news/:site?/:id?/:keyword?": {
-        "path": "/news/:site?/:id?/:keyword?",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/6park/news",
-        "radar": [
-          {
-            "source": [
-              "club.6parkbbs.com/:id/index.php",
-              "club.6parkbbs.com/"
-            ],
-            "target": "/:id?"
-          }
-        ],
-        "name": "新闻栏目",
-        "maintainers": [
-          "nczitzk",
-          "cscnk52"
-        ],
-        "parameters": {
-          "site": "分站，见下表，默认为 newspark",
-          "id": "栏目 id",
-          "keyword": "关键字"
-        },
-        "description": "分站\n\n| newspark | local |\n| -------- | ----- |\n\n::: tip 提示\n若订阅 [时政](https://www.6parknews.com/newspark/index.php?type=1)，其网址为 <https://www.6parknews.com/newspark/index.php?type=1>，其中 `newspark` 为分站，`1` 为栏目 id。\n若订阅 [美国](https://local.6parknews.com/index.php?type_id=1)，其网址为 <https://local.6parknews.com/index.php?type_id=1>，其中 `local` 为分站，`1` 为栏目 id。\n:::",
-        "location": "news.ts",
-        "module": () => import('@/routes/6park/news.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "留园网",
-    "url": "club.6parkbbs.com",
-    "lang": "zh-CN"
-  },
   "78dm": {
     "routes": {
       "/:category{.+}?": {
@@ -28909,46 +28870,6 @@ export default {
     "name": "AcFun",
     "url": "www.acfun.cn",
     "lang": "zh-CN"
-  },
-  "acgvinyl": {
-    "routes": {
-      "/news": {
-        "path": "/news",
-        "categories": [
-          "anime"
-        ],
-        "example": "/acgvinyl/news",
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "www.acgvinyl.com"
-            ],
-            "target": "/news"
-          }
-        ],
-        "name": "News",
-        "maintainers": [
-          "williamgateszhao"
-        ],
-        "url": "www.acgvinyl.com/col.jsp?id=103",
-        "zh": {
-          "name": "黑胶新闻"
-        },
-        "location": "news.ts",
-        "module": () => import('@/routes/acgvinyl/news.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "ACG Vinyl - 黑胶",
-    "url": "www.acgvinyl.com"
   },
   "acm": {
     "routes": {
@@ -35386,6 +35307,10 @@ export default {
           }
         ],
         "name": "漫画更新",
+        "features": {
+          "requirePuppeteer": true,
+          "antiCrawler": true
+        },
         "maintainers": [
           "yoyobase"
         ],
@@ -35401,114 +35326,6 @@ export default {
       "anime"
     ],
     "lang": "zh-CN"
-  },
-  "bandcamp": {
-    "routes": {
-      "/live": {
-        "path": "/live",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/bandcamp/live",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "bandcamp.com/live_schedule",
-              "bandcamp.com/live"
-            ]
-          }
-        ],
-        "name": "Upcoming Live Events",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "url": "bandcamp.com/live",
-        "location": "live.tsx",
-        "module": () => import('@/routes/bandcamp/live.tsx')
-      },
-      "/weekly": {
-        "path": "/weekly",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/bandcamp/weekly",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "bandcamp.com/"
-            ]
-          }
-        ],
-        "name": "Weekly",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "url": "bandcamp.com/",
-        "location": "weekly.tsx",
-        "module": () => import('@/routes/bandcamp/weekly.tsx')
-      },
-      "/tag/:tag?": {
-        "path": "/tag/:tag?",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/bandcamp/tag/united-kingdom",
-        "parameters": {
-          "tag": "Tag, can be found in URL. All music by default."
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "bandcamp.com/tag/:tag",
-              "bandcamp.com/discover/:tag"
-            ],
-            "target": "/tag/:tag"
-          },
-          {
-            "source": [
-              "bandcamp.com/discover"
-            ],
-            "target": "/tag"
-          }
-        ],
-        "name": "Tag",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "location": "tag.tsx",
-        "module": () => import('@/routes/bandcamp/tag.tsx')
-      }
-    },
-    "apiRoutes": {},
-    "name": "Bandcamp",
-    "url": "bandcamp.com",
-    "lang": "en"
   },
   "bandisoft": {
     "routes": {
@@ -36930,44 +36747,6 @@ export default {
     "name": "北京市科学技术协会",
     "url": "bast.net.cn",
     "lang": "zh-CN"
-  },
-  "bbcnewslabs": {
-    "routes": {
-      "/news": {
-        "path": "/news",
-        "categories": [
-          "programming"
-        ],
-        "example": "/bbcnewslabs/news",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "bbcnewslabs.co.uk/"
-            ]
-          }
-        ],
-        "name": "News",
-        "maintainers": [
-          "elxy"
-        ],
-        "url": "bbcnewslabs.co.uk/",
-        "location": "news.ts",
-        "module": () => import('@/routes/bbcnewslabs/news.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "BBC News Labs",
-    "url": "bbcnewslabs.co.uk",
-    "lang": "en"
   },
   "bcg": {
     "routes": {
@@ -39073,7 +38852,7 @@ export default {
         ],
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportRadar": false,
           "supportBT": false,
@@ -40609,45 +40388,6 @@ export default {
     "zh": {
       "name": "首都博物馆"
     }
-  },
-  "cartoonmad": {
-    "routes": {
-      "/comic/:id": {
-        "path": "/comic/:id",
-        "categories": [
-          "anime"
-        ],
-        "example": "/cartoonmad/comic/5827",
-        "parameters": {
-          "id": "漫画ID"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "cartoonmad.com/comic/:id"
-            ]
-          }
-        ],
-        "name": "漫画更新",
-        "maintainers": [
-          "KellyHwong"
-        ],
-        "location": "comic.tsx",
-        "module": () => import('@/routes/cartoonmad/comic.tsx')
-      }
-    },
-    "apiRoutes": {},
-    "name": "動漫狂",
-    "url": "cartoonmad.com",
-    "lang": "zh-TW"
   },
   "cas": {
     "routes": {
@@ -46219,7 +45959,7 @@ export default {
     },
     "apiRoutes": {},
     "name": "云原生社区",
-    "url": "cloudnative.to",
+    "url": "cloudnative.jimmysong.io",
     "lang": "zh-CN"
   },
   "cls": {
@@ -50538,6 +50278,9 @@ export default {
         "maintainers": [
           "sanmmm"
         ],
+        "features": {
+          "requirePuppeteer": true
+        },
         "url": "graduate.cug.edu.cn/tzgg.htm",
         "location": "graduate.ts",
         "module": () => import('@/routes/cug/graduate.ts')
@@ -54716,115 +54459,6 @@ export default {
     "url": "announce.dol.go.th",
     "lang": "th"
   },
-  "domp4": {
-    "routes": {
-      "/detail/:id": {
-        "path": "/detail/:id",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/domp4/detail/LBTANI22222I",
-        "parameters": {
-          "id": "从剧集详情页 URL 处获取，如：`https://www.xlmp4.com/html/LBTANI22222I.html`，取 `.html` 前面部分"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": true,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "www.xlmp4.com/html/:id",
-              "www.xlmp4.com/detail/:id"
-            ]
-          }
-        ],
-        "name": "剧集订阅",
-        "maintainers": [
-          "savokiss",
-          "pseudoyu"
-        ],
-        "description": "::: tip\n由于大部分详情页是 `/html/xxx.html`，还有部分是 `/detail/123.html`，所以此处做了兼容，id 取 `xxx` 或者 `123` 都可以。\n\n新增 `second` 参数，用于选择下载地址二（地址二不可用或者不填都默认地址一），用法: `/domp4/detail/LBTANI22222I?second=1`。\n\n域名频繁更换，目前使用 [www.xlmp4.com](http://www.xlmp4.com)\n:::",
-        "location": "detail.ts",
-        "module": () => import('@/routes/domp4/detail.ts')
-      },
-      "/latest_movie_bt": {
-        "path": "/latest_movie_bt",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/domp4/latest_movie_bt",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": true,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "www.xlmp4.com/",
-              "www.xlmp4.com/custom/update.html"
-            ]
-          }
-        ],
-        "name": "最近更新的电源BT列表",
-        "maintainers": [
-          "xianghuawe",
-          "pseudoyu"
-        ],
-        "url": "www.xlmp4.com/",
-        "location": "latest-movie-bt.ts",
-        "module": () => import('@/routes/domp4/latest-movie-bt.ts')
-      },
-      "/latest/:type?": {
-        "path": "/latest/:type?",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/domp4/latest/vod",
-        "parameters": {
-          "type": "`vod` 代表电影，`tv` 代表电视剧，默认 vod"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "www.xlmp4.com/",
-              "www.xlmp4.com/custom/update.html"
-            ]
-          }
-        ],
-        "name": "最近更新",
-        "maintainers": [
-          "savokiss",
-          "pseudoyu"
-        ],
-        "url": "www.xlmp4.com/",
-        "location": "latest.ts",
-        "module": () => import('@/routes/domp4/latest.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "DoMP4 影视",
-    "url": "www.xlmp4.com",
-    "description": "::: tip\n域名频繁更换，目前使用 [www.xlmp4.com](http://www.xlmp4.com)\n:::",
-    "lang": "zh-CN"
-  },
   "dongmanmanhua": {
     "routes": {
       "/:category/:name/:id": {
@@ -55490,7 +55124,7 @@ export default {
         },
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -57211,6 +56845,30 @@ export default {
     "apiRoutes": {},
     "name": "Elastic 中文社区",
     "url": "elasticsearch.cn",
+    "lang": "zh-CN"
+  },
+  "ele.me": {
+    "routes": {
+      "/open/announce": {
+        "path": "/open/announce",
+        "categories": [
+          "programming"
+        ],
+        "example": "/ele.me/open/announce",
+        "name": "商家开放平台公告",
+        "maintainers": [
+          "phantomk"
+        ],
+        "location": "open/announce.ts",
+        "module": () => import('@/routes/ele.me/open/announce.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "饿了么",
+    "url": "www.ele.me",
+    "categories": [
+      "programming"
+    ],
     "lang": "zh-CN"
   },
   "elecfans": {
@@ -61868,6 +61526,106 @@ export default {
     "url": "getdr.com",
     "lang": "zh-TW"
   },
+  "gfqh": {
+    "routes": {
+      "/report/:variety?/:category?": {
+        "path": "/report/:variety?/:category?",
+        "categories": [
+          "finance"
+        ],
+        "example": "/gfqh/report/100005",
+        "parameters": {
+          "variety": {
+            "description": "交易品种",
+            "default": "0",
+            "options": [
+              {
+                "value": "0",
+                "label": "全部"
+              },
+              {
+                "value": "100002",
+                "label": "能源化工"
+              },
+              {
+                "value": "100004",
+                "label": "金融"
+              },
+              {
+                "value": "100005",
+                "label": "农产品"
+              },
+              {
+                "value": "100009",
+                "label": "综合"
+              },
+              {
+                "value": "100010",
+                "label": "黑色金属"
+              },
+              {
+                "value": "100011",
+                "label": "有色金属"
+              }
+            ]
+          },
+          "category": {
+            "description": "报告类型",
+            "default": "0",
+            "options": [
+              {
+                "value": "0",
+                "label": "全部"
+              },
+              {
+                "value": "100001",
+                "label": "常规报告"
+              },
+              {
+                "value": "100003",
+                "label": "专题报告"
+              },
+              {
+                "value": "100004",
+                "label": "其他报告"
+              },
+              {
+                "value": "100005",
+                "label": "调研报告"
+              },
+              {
+                "value": "100006",
+                "label": "热点点评"
+              }
+            ]
+          }
+        },
+        "radar": [
+          {
+            "source": [
+              "rd.gfqh.cn/RDInformation/menu/235"
+            ],
+            "target": "/report"
+          }
+        ],
+        "name": "研究报告",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "url": "rd.gfqh.cn/RDInformation/menu/235",
+        "description": "例如农产品常规报告使用 `/gfqh/report/100005/100001`。报告正文多为 PDF 附件，附件链接列在条目内容末尾。只读取第一页。",
+        "location": "report.tsx",
+        "module": () => import('@/routes/gfqh/report.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "广发期货",
+    "url": "rd.gfqh.cn",
+    "categories": [
+      "finance"
+    ],
+    "lang": "zh-CN"
+  },
   "ghisler": {
     "routes": {
       "/whatsnew": {
@@ -62078,6 +61836,15 @@ export default {
           "user": "User / Org name",
           "repo": "Repo name",
           "number": "Issue or pull number (if omitted: all)"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "GITHUB_ACCESS_TOKEN",
+              "optional": true,
+              "description": "Required for the latest events of a single issue or pull request whose timeline exceeds one REST API page. Optional for smaller public timelines and repository-wide comments."
+            }
+          ]
         },
         "radar": [
           {
@@ -69318,7 +69085,7 @@ export default {
         ],
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportRadar": true,
           "supportBT": false,
@@ -69459,7 +69226,7 @@ export default {
     },
     "apiRoutes": {},
     "name": "湖北大学",
-    "url": "hubu.edu.cn",
+    "url": "www.hubu.edu.cn",
     "categories": [
       "university"
     ],
@@ -69517,6 +69284,41 @@ export default {
         "url": "huggingface.co",
         "location": "user-likes.ts",
         "module": () => import('@/routes/huggingface/user-likes.ts')
+      },
+      "/activity/:user/posts": {
+        "path": "/activity/:user/posts",
+        "categories": [
+          "programming"
+        ],
+        "view": 1,
+        "example": "/huggingface/activity/AbstractPhil/posts",
+        "parameters": {
+          "user": "Hugging Face username"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "huggingface.co/:user/activity/posts"
+            ],
+            "target": "/activity/:user/posts"
+          }
+        ],
+        "name": "User Posts Activity",
+        "maintainers": [
+          "qqc20043",
+          "pseudoyu"
+        ],
+        "url": "huggingface.co",
+        "location": "user-posts.ts",
+        "module": () => import('@/routes/huggingface/user-posts.ts')
       },
       "/blog-community/:sort?": {
         "path": "/blog-community/:sort?",
@@ -71385,7 +71187,7 @@ export default {
         },
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -71409,6 +71211,9 @@ export default {
           "earlyAccess": "Optional, set any value to get early access articles"
         },
         "example": "/ieee/journal/6287639/preprint",
+        "features": {
+          "requirePuppeteer": true
+        },
         "location": "journal.ts",
         "module": () => import('@/routes/ieee/journal.ts')
       }
@@ -74750,7 +74555,7 @@ export default {
         },
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -80423,7 +80228,7 @@ export default {
         },
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -81847,6 +81652,84 @@ export default {
     "name": "Love Live! Official Website",
     "url": "www.lovelive-anime.jp",
     "lang": "ja"
+  },
+  "lowendtalk": {
+    "routes": {
+      "/discussion/:id": {
+        "path": "/discussion/:id",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/lowendtalk/discussion/168480",
+        "parameters": {
+          "id": "Discussion id, can be found in the URL"
+        },
+        "radar": [
+          {
+            "source": [
+              "lowendtalk.com/discussion/:id/*",
+              "lowendtalk.com/discussion/:id"
+            ]
+          }
+        ],
+        "name": "Discussion",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "url": "lowendtalk.com",
+        "location": "discussion.ts",
+        "module": () => import('@/routes/lowendtalk/discussion.ts')
+      },
+      "/profile/:type/:username": {
+        "path": "/profile/:type/:username",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/lowendtalk/profile/discussions/Ikoula",
+        "parameters": {
+          "type": {
+            "description": "Content type",
+            "options": [
+              {
+                "value": "discussions",
+                "label": "Discussions"
+              },
+              {
+                "value": "comments",
+                "label": "Comments"
+              }
+            ]
+          },
+          "username": "Username, can be found in the profile URL"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "LOWENDTALK_COOKIE",
+              "description": "The `Cookie` header of a logged-in session. Profile pages are only visible to signed-in users."
+            }
+          ]
+        },
+        "radar": [
+          {
+            "source": [
+              "lowendtalk.com/profile/:type/:username"
+            ]
+          }
+        ],
+        "name": "User Discussions / Comments",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "lowendtalk.com",
+        "location": "profile.ts",
+        "module": () => import('@/routes/lowendtalk/profile.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "LowEndTalk",
+    "url": "lowendtalk.com",
+    "lang": "en"
   },
   "lrepacks": {
     "routes": {
@@ -86811,7 +86694,7 @@ export default {
             {
               "name": "MOX_COOKIE",
               "optional": true,
-              "description": "注册用户登录后的 Cookie, 可以从浏览器开发者工具Network面板中的mox页面请求获取，Cookie内容形如VOLSKEY=xxxxxx; VLIBSID=xxxxxx; VOLSESS=xxxxxx"
+              "description": "Kmoe（kxx.moe）登录后的 Cookie，可从该站浏览器开发者工具的 Network 请求中获取。原 mox.moe 现跳转至该站；Cookie 仅发送到 kxx.moe。"
             }
           ],
           "antiCrawler": true
@@ -86819,6 +86702,8 @@ export default {
         "radar": [
           {
             "source": [
+              "kxx.moe/l/:category",
+              "kxx.moe/",
               "mox.moe/l/:category",
               "mox.moe/"
             ]
@@ -86828,14 +86713,14 @@ export default {
         "maintainers": [
           "nczitzk"
         ],
-        "description": "::: tip\n在首页将分类参数选择确定后跳转到的分类页面 URL 中，`/l/` 后的字段即为分类参数。\n\n如 [科幻 + 日語 + 日本 + 長篇 + 完結 + 最近更新](https://mox.moe/l/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL) 的 URL 为 [https://mox.moe/l/CAT%2A 科幻，日本，完結，lastupdate,jpn,l,BL](https://mox.moe/l/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL)，此时 `/l/` 后的字段为 `CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL`。最终获得路由为 [`/mox/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL`](https://rsshub.app/mox/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL)\n:::\n\n::: warning\n由于 mox.moe 对非登录用户屏蔽了部分漫画详情内容的获取，且极易触发反爬机制，导致访问 ip 被重定向至 google.com，因此在未配置`MOX_COOKIE`参数的情况下路由只会返回漫画标题和封面，不会对详情内容进行抓取。\n:::",
+        "description": "::: tip\n在首页将分类参数选择确定后跳转到的分类页面 URL 中，`/l/` 后的字段即为分类参数。\n\n如 [科幻 + 日語 + 日本 + 長篇 + 完結 + 最近更新](https://kxx.moe/l/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL) 的 URL 为 [https://kxx.moe/l/CAT%2A 科幻，日本，完結，lastupdate,jpn,l,BL](https://kxx.moe/l/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL)，此时 `/l/` 后的字段为 `CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL`。最终获得路由为 [`/mox/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL`](https://rsshub.app/mox/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL)\n:::\n\n::: warning\n原 mox.moe 现跳转至 kxx.moe。未配置 `MOX_COOKIE` 时只获取首页漫画标题和封面，不请求详情；部分分类需要登录。配置该站有效登录 Cookie 后才获取详情，Cookie 不会随跳转发送到其他站点。\n:::",
         "location": "index.ts",
         "module": () => import('@/routes/mox/index.ts')
       }
     },
     "apiRoutes": {},
-    "name": "Mox.moe",
-    "url": "mox.moe",
+    "name": "Kmoe",
+    "url": "kxx.moe",
     "lang": "zh-TW"
   },
   "moxingfans": {
@@ -95547,39 +95432,6 @@ export default {
     "description": "美食網站 Openrice 相关資訊",
     "lang": "zh-HK"
   },
-  "openwrt": {
-    "routes": {
-      "/releases/:brand/:model": {
-        "path": "/releases/:brand/:model",
-        "categories": [
-          "program-update"
-        ],
-        "example": "/openwrt/releases/xiaomi/xiaomi_redmi_router_ac2100",
-        "parameters": {
-          "brand": "Device Model, can be found in url of `Table of Hardware` -> `Device Page`",
-          "model": "Same as above"
-        },
-        "radar": [
-          {
-            "source": [
-              "openwrt.org/toh/:brand/:model"
-            ],
-            "target": "/releases/:brand/:model"
-          }
-        ],
-        "name": "Releases",
-        "maintainers": [
-          "DIYgod"
-        ],
-        "location": "releases.ts",
-        "module": () => import('@/routes/openwrt/releases.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "OpenWrt",
-    "url": "openwrt.org",
-    "lang": "en"
-  },
   "oreno3d": {
     "routes": {
       "/authors/:authorid/:sort/:pagelimit?": {
@@ -97481,6 +97333,49 @@ export default {
     "name": "虚词",
     "url": "p-articles.com",
     "lang": "zh-TW"
+  },
+  "p-bandai": {
+    "routes": {
+      "/new": {
+        "path": "/new",
+        "categories": [
+          "shopping"
+        ],
+        "example": "/p-bandai/new",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "p-bandai.jp/new_itemlist"
+            ],
+            "target": "/new"
+          }
+        ],
+        "name": "New Items",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "url": "p-bandai.jp/new_itemlist/",
+        "description": "Items added in the last 10 days, with the image, the price and the start of sales or reservations.\n\n::: warning\nPremium Bandai redirects visitors outside Japan to its international site, so the instance needs a Japanese IP. You can send only these requests through a Japanese proxy with `PROXY_URI` and `PROXY_URL_REGEX=p-bandai\\.jp`.\n\nThe list shortens long item names, and the item pages are behind a browser check, so full names and delivery dates are not included.\n:::",
+        "location": "new.tsx",
+        "module": () => import('@/routes/p-bandai/new.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Premium Bandai",
+    "url": "p-bandai.jp",
+    "lang": "ja",
+    "ja": {
+      "name": "プレミアムバンダイ"
+    }
   },
   "pacilution": {
     "routes": {
@@ -101455,6 +101350,43 @@ export default {
         "location": "monthly-games.tsx",
         "module": () => import('@/routes/ps/monthly-games.tsx')
       },
+      "/price/:id/:locale?": {
+        "path": "/price/:id/:locale?",
+        "categories": [
+          "game"
+        ],
+        "view": 5,
+        "example": "/ps/price/10001538",
+        "parameters": {
+          "id": "Concept or product ID from the store URL, such as `10001538` in `https://store.playstation.com/en-us/concept/10001538`",
+          "locale": "Store locale from the URL, `en-us` by default"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "store.playstation.com/:locale/concept/:id",
+              "store.playstation.com/:locale/product/:id"
+            ],
+            "target": "/price/:id/:locale"
+          }
+        ],
+        "name": "Game Price",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "url": "store.playstation.com",
+        "description": "A concept ID lists every edition of the game, and a product ID lists only that product. A new item appears whenever the price or the end of the offer changes. PlayStation Plus prices and trials are not included.",
+        "location": "price.tsx",
+        "module": () => import('@/routes/ps/price.tsx')
+      },
       "/trophy/:id": {
         "path": "/trophy/:id",
         "categories": [
@@ -104438,6 +104370,31 @@ export default {
   },
   "reuters": {
     "routes": {
+      "/my-news": {
+        "path": "/my-news",
+        "categories": [
+          "traditional-media"
+        ],
+        "view": 0,
+        "example": "/reuters/my-news",
+        "features": {
+          "requireConfig": [
+            {
+              "name": "REUTERS_AUTH_TOKEN",
+              "optional": false,
+              "description": "Sign in to Reuters and open Browser Devtools to find `rt_token` from Local Storage."
+            }
+          ],
+          "requirePuppeteer": false
+        },
+        "name": "My News",
+        "maintainers": [
+          "dzx-dzx"
+        ],
+        "description": "The first page of the configured Reuters account's personalized My News feed. Requires a self-hosted instance with `REUTERS_AUTH_TOKEN` configured.",
+        "location": "my-news.ts",
+        "module": () => import('@/routes/reuters/my-news.ts')
+      },
       "/:category/:topic?": {
         "path": "/:category/:topic?",
         "categories": [
@@ -107696,7 +107653,8 @@ export default {
         },
         "description": "| 电影 | 电视剧 | 动漫 | 综艺 | 短剧 | 网飞 |\n| ---- | ------ | ---- | ---- | ---- | ---- |\n| 1    | 2      | 3    | 4    | 5    | 30   |",
         "features": {
-          "antiCrawler": true
+          "antiCrawler": true,
+          "requirePuppeteer": true
         },
         "name": "分类",
         "maintainers": [
@@ -115444,7 +115402,13 @@ export default {
           "id": "博客 id，可在对应博客页中找到"
         },
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "TAOGUBA_COOKIE",
+              "optional": true,
+              "description": "Your own www.tgb.cn Cookie for articles that require login. Anonymous excerpts remain available without it."
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -115474,6 +115438,15 @@ export default {
         "example": "/taoguba",
         "parameters": {
           "category": "分类，见下表，默认为社区总版"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "TAOGUBA_COOKIE",
+              "optional": true,
+              "description": "Your own www.tgb.cn Cookie for articles that require login. Anonymous excerpts remain available without it."
+            }
+          ]
         },
         "name": "淘股论坛",
         "maintainers": [
@@ -116039,7 +116012,7 @@ export default {
           "synchrone",
           "pseudoyu"
         ],
-        "description": "::: tip\nDue to Telegram restrictions, some channels involving pornography, copyright, and politics cannot be subscribed. You can confirm by visiting `https://t.me/s/:username`, it's recommended to deploy your own instance with telegram api configs (create your telegram application via `https://core.telegram.org/api/obtaining_api_id`, run this command `node ./lib/routes/telegram/scripts/get-telegram-session.mjs` to get `TELEGRAM_SESSION` and set it as Environment Variable).\nMTProto connections can use a SOCKS4/5 `PROXY_URI` (for example, `socks5://127.0.0.1:1080`) or the dedicated `TELEGRAM_PROXY_HOST`, `TELEGRAM_PROXY_PORT`, and `TELEGRAM_PROXY_SECRET` MTProxy settings, which take precedence. HTTP proxies only apply to the public web feed; use a SOCKS or MTProxy endpoint for authenticated MTProto feeds.\n\nWhen a reverse proxy removes a public URL prefix (for example, `/rss`), set its `X-Forwarded-Prefix` request header to that prefix so Telegram media links include it. Access-control `key` and `code` parameters are preserved in these media links.\n:::",
+        "description": "::: tip\nDue to Telegram restrictions, some channels involving pornography, copyright, and politics cannot be subscribed. You can confirm by visiting `https://t.me/s/:username`, it's recommended to deploy your own instance with telegram api configs (create your telegram application via `https://core.telegram.org/api/obtaining_api_id`, run this command `node ./lib/routes/telegram/scripts/get-telegram-session.mjs` to get `TELEGRAM_SESSION` and set it as Environment Variable).\nMTProto connections can use a SOCKS4/5 `PROXY_URI` (for example, `socks5://127.0.0.1:1080`) or the dedicated `TELEGRAM_PROXY_HOST`, `TELEGRAM_PROXY_PORT`, and `TELEGRAM_PROXY_SECRET` MTProxy settings, which take precedence. HTTP proxies only apply to the public web feed; use a SOCKS or MTProxy endpoint for authenticated MTProto feeds.\nWhen MTProto fails or gives no response within `REQUEST_TIMEOUT`, the route falls back to the public web feed. Cloudflare Workers deployments always use the public web feed.\n\nWhen a reverse proxy removes a public URL prefix (for example, `/rss`), set its `X-Forwarded-Prefix` request header to that prefix so Telegram media links include it. Access-control `key` and `code` parameters are preserved in these media links.\n:::",
         "location": "channel.ts",
         "module": () => import('@/routes/telegram/channel.ts')
       }
@@ -117583,6 +117556,9 @@ export default {
         "maintainers": [
           "lyling"
         ],
+        "features": {
+          "requirePuppeteer": true
+        },
         "location": "cloud/developer/column.ts",
         "module": () => import('@/routes/tencent/cloud/developer/column.ts')
       },
@@ -121584,7 +121560,7 @@ export default {
               "description": "河畔的cookie"
             },
             {
-              "name": "UESTC_BBS_AUTH_KEY",
+              "name": "UESTC_BBS_AUTH_STR",
               "optional": false,
               "description": "河畔Header中的authorization字段"
             }
@@ -121595,7 +121571,7 @@ export default {
           "supportPodcast": false,
           "supportScihub": false
         },
-        "description": "::: tip\n仅支持自建，您需要设置以下配置才能正常使用：\n\n- 河畔 cookie: `UESTC_BBS_COOKIE`\n- Header 中的授权字段: `UESTC_BBS_AUTH_KEY`\n\n:::",
+        "description": "::: tip\n仅支持自建，您需要设置以下配置才能正常使用：\n\n- 河畔 cookie: `UESTC_BBS_COOKIE`\n- Header 中的授权字段: `UESTC_BBS_AUTH_STR`\n\n:::",
         "radar": [
           {
             "source": [
@@ -123817,6 +123793,186 @@ export default {
     "description": "挖贝网专注于新三板、A 股和港股报道",
     "lang": "zh-CN"
   },
+  "wainao": {
+    "routes": {
+      "/topics/:id?": {
+        "path": "/topics/:id?",
+        "name": "主题",
+        "url": "wainao.me",
+        "maintainers": [
+          "shuiRong",
+          "nczitzk"
+        ],
+        "example": "/wainao/topics/hotspot",
+        "parameters": {
+          "id": {
+            "description": "主题 id，默认为 `hotspot`，即热点，可在对应主题页 URL 中找到",
+            "options": [
+              {
+                "label": "热点",
+                "value": "hotspot"
+              },
+              {
+                "label": "人物",
+                "value": "people"
+              },
+              {
+                "label": "身份",
+                "value": "identity"
+              },
+              {
+                "label": "政治",
+                "value": "politics"
+              },
+              {
+                "label": "社会",
+                "value": "society"
+              },
+              {
+                "label": "文化",
+                "value": "culture"
+              },
+              {
+                "label": "经济",
+                "value": "economics"
+              },
+              {
+                "label": "环境",
+                "value": "environment"
+              },
+              {
+                "label": "FUN",
+                "value": "fun"
+              }
+            ]
+          }
+        },
+        "description": "::: tip\n若订阅 [人物](https://www.wainao.me/topics/people)，网址为 `https://www.wainao.me/topics/people`，请截取 `https://www.wainao.me/topics/` 到末尾的部分 `people` 作为 `id` 参数填入，此时目标路由为 [`/wainao/topics/people`](https://rsshub.app/wainao/topics/people)。\n:::\n\n| [热点](https://www.wainao.me/topics/hotspot)        | [人物](https://www.wainao.me/topics/people)       | [身份](https://www.wainao.me/topics/identity)         | [政治](https://www.wainao.me/topics/politics)         | [社会](https://www.wainao.me/topics/society)        | [文化](https://www.wainao.me/topics/culture)        | [经济](https://www.wainao.me/topics/economics)          | [环境](https://www.wainao.me/topics/environment)            | [FUN](https://www.wainao.me/topics/fun)     |\n| --------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------- |\n| [hotspot](https://rsshub.app/wainao/topics/hotspot) | [people](https://rsshub.app/wainao/topics/people) | [identity](https://rsshub.app/wainao/topics/identity) | [politics](https://rsshub.app/wainao/topics/politics) | [society](https://rsshub.app/wainao/topics/society) | [culture](https://rsshub.app/wainao/topics/culture) | [economics](https://rsshub.app/wainao/topics/economics) | [environment](https://rsshub.app/wainao/topics/environment) | [fun](https://rsshub.app/wainao/topics/fun) |",
+        "categories": [
+          "new-media"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.wainao.me/topics/:id"
+            ],
+            "target": "/topics/:id"
+          },
+          {
+            "title": "热点",
+            "source": [
+              "www.wainao.me/topics/hotspot"
+            ],
+            "target": "/topics/hotspot"
+          },
+          {
+            "title": "人物",
+            "source": [
+              "www.wainao.me/topics/people"
+            ],
+            "target": "/topics/people"
+          },
+          {
+            "title": "身份",
+            "source": [
+              "www.wainao.me/topics/identity"
+            ],
+            "target": "/topics/identity"
+          },
+          {
+            "title": "政治",
+            "source": [
+              "www.wainao.me/topics/politics"
+            ],
+            "target": "/topics/politics"
+          },
+          {
+            "title": "社会",
+            "source": [
+              "www.wainao.me/topics/society"
+            ],
+            "target": "/topics/society"
+          },
+          {
+            "title": "文化",
+            "source": [
+              "www.wainao.me/topics/culture"
+            ],
+            "target": "/topics/culture"
+          },
+          {
+            "title": "经济",
+            "source": [
+              "www.wainao.me/topics/economics"
+            ],
+            "target": "/topics/economics"
+          },
+          {
+            "title": "环境",
+            "source": [
+              "www.wainao.me/topics/environment"
+            ],
+            "target": "/topics/environment"
+          },
+          {
+            "title": "FUN",
+            "source": [
+              "www.wainao.me/topics/fun"
+            ],
+            "target": "/topics/fun"
+          }
+        ],
+        "view": 0,
+        "location": "topics.tsx",
+        "module": () => import('@/routes/wainao/topics.tsx')
+      },
+      "/wainao-reads": {
+        "path": "/wainao-reads",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wainao/wainao-reads",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "url": "www.wainao.me",
+        "name": "读",
+        "maintainers": [
+          "lucky13820"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.wainao.me",
+              "www.wainao.me/wainao-reads"
+            ],
+            "target": "/wainao-reads"
+          }
+        ],
+        "location": "wainao-reads.ts",
+        "module": () => import('@/routes/wainao/wainao-reads.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "歪脑",
+    "url": "wainao.me",
+    "description": "歪脑是为讲中文的年轻一代度身定制的新闻杂志。",
+    "lang": "zh-CN"
+  },
   "wallhaven": {
     "routes": {
       "/search/:filter?/:needDetails?": {
@@ -124793,6 +124949,10 @@ export default {
             "target": "/ranking"
           }
         ],
+        "features": {
+          "requirePuppeteer": true,
+          "antiCrawler": true
+        },
         "location": "ranking.tsx",
         "module": () => import('@/routes/webnovel/ranking.tsx')
       }
@@ -124832,6 +124992,288 @@ export default {
       "anime"
     ],
     "lang": "en"
+  },
+  "wechat": {
+    "routes": {
+      "/wechat2rss/:id": {
+        "path": "/wechat2rss/:id",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/wechat2rss/5b925323244e9737c39285596c53e3a2f4a30774",
+        "parameters": {
+          "id": "公众号 id，打开 `https://wechat2rss.xlab.app/posts/list/`，在 URL 中找到 id；注意不是公众号页的 id，而是订阅的 id"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号（Wechat2RSS 来源）",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "location": "wechat2rss.ts",
+        "module": () => import('@/routes/wechat/wechat2rss.ts')
+      },
+      "/announce": {
+        "path": "/announce",
+        "categories": [
+          "programming"
+        ],
+        "example": "/wechat/announce",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "mp.weixin.qq.com/cgi-bin/announce"
+            ]
+          }
+        ],
+        "name": "公众平台系统公告栏目",
+        "maintainers": [
+          "xyqfer"
+        ],
+        "url": "mp.weixin.qq.com/cgi-bin/announce",
+        "location": "announce.ts",
+        "module": () => import('@/routes/wechat/announce.ts')
+      },
+      "/ce/:id": {
+        "path": "/ce/:id",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/ce/595a5b14d7164e53908f1606",
+        "parameters": {
+          "id": "公众号 id，在 [CareerEngine](https://search.careerengine.us/) 搜索公众号，通过 URL 中找到对应的公众号 id"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "cimidata.com/a/:id"
+            ]
+          }
+        ],
+        "name": "公众号（CareerEngine 来源）",
+        "maintainers": [
+          "HenryQW"
+        ],
+        "location": "ce.ts",
+        "module": () => import('@/routes/wechat/ce.ts')
+      },
+      "/data258/:id?": {
+        "path": "/data258/:id?",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/data258/gh_cbbad4c1d33c",
+        "parameters": {
+          "id": "公众号 id 或分类 id，可在公众号页或分类页 URL 中找到；若略去，则抓取首页"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "mp.data258.com/",
+              "mp.data258.com/article/category/:id"
+            ]
+          }
+        ],
+        "name": "公众号（微阅读来源）",
+        "maintainers": [
+          "Rongronggg9"
+        ],
+        "url": "mp.data258.com/",
+        "description": "::: warning\n由于使用了一些针对反爬的缓解措施，本路由响应较慢。默认只抓取前 5 条，可通过 `?limit=` 改变（不推荐，容易被反爬）。\n\n该网站使用 IP 甄别访客，且应用严格的每日阅读量限额（约 15 次），请自建并确保正确配置缓存；如使用内存缓存而非 Redis 缓存，请增大缓存容量。该限额足够订阅至少 3 个公众号（假设公众号每日仅更新一次）；首页 / 分类页更新相当频繁，不推荐订阅。\n:::",
+        "location": "data258.ts",
+        "module": () => import('@/routes/wechat/data258.ts')
+      },
+      "/ershicimi/:id": {
+        "path": "/ershicimi/:id",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/ershicimi/813oxJOl",
+        "parameters": {
+          "id": "公众号id，打开公众号页，在 URL 中找到 id"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号（二十次幂来源）",
+        "maintainers": [
+          "sanmmm"
+        ],
+        "location": "ershcimi.ts",
+        "module": () => import('@/routes/wechat/ershcimi.ts')
+      },
+      "/mp/homepage/:biz/:hid/:cid?": {
+        "path": "/mp/homepage/:biz/:hid/:cid?",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/mp/homepage/MzA3MDM3NjE5NQ==/16",
+        "parameters": {
+          "biz": "公众号id",
+          "hid": "分页id",
+          "cid": "页内栏目"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号栏目 (非推送 & 历史消息)",
+        "maintainers": [
+          "MisteryMonster"
+        ],
+        "description": "只适用拥有首页模板 (分享链接带有 homepage) 的公众号。例如从公众号分享出来的链接为 `https://mp.weixin.qq.com/mp/homepage?__biz=MzA3MDM3NjE5NQ==&hid=4`，`biz` 为 `MzA3MDM3NjE5NQ==`，`hid` 为 `4`。\n\n有些页面里会有分栏， `cid` 可以通过元素选择器选中栏目查看`data-index`。如[链接](https://mp.weixin.qq.com/mp/homepage?__biz=MzA3MDM3NjE5NQ==\\&hid=4)里的 `京都职人` 栏目的 `cid` 为 `0`，`文艺时光` 栏目的 `cid` 为 `2`。如果不清楚的话最左边的栏目为`0`，其右方栏目依次递增 `1`。",
+        "location": "mp.ts",
+        "module": () => import('@/routes/wechat/mp.ts')
+      },
+      "/mp/msgalbum/:biz/:aid": {
+        "path": "/mp/msgalbum/:biz/:aid",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/mp/msgalbum/MzA3MDM3NjE5NQ==/1375870284640911361",
+        "parameters": {
+          "biz": "公众号id",
+          "aid": "Tag id"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号文章话题 Tag",
+        "maintainers": [
+          "MisteryMonster"
+        ],
+        "description": "一些公众号（如看理想）会在微信文章里添加 Tag ，点入 Tag 的链接如 `https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3MDM3NjE5NQ==&action=getalbum&album_id=1375870284640911361`，其中`biz` 为 `MzA3MDM3NjE5NQ==`，`aid` 为 `1375870284640911361`。",
+        "location": "msgalbum.ts",
+        "module": () => import('@/routes/wechat/msgalbum.ts')
+      },
+      "/sogou/:id": {
+        "path": "/sogou/:id",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/sogou/qimao0908",
+        "parameters": {
+          "id": "公众号 id, 打开 weixin.sogou.com 并搜索相应公众号， 在 URL 中找到 id"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号（搜狗来源）",
+        "maintainers": [
+          "IvanWng97",
+          "pseudoyu"
+        ],
+        "location": "sogou.ts",
+        "module": () => import('@/routes/wechat/sogou.ts')
+      },
+      "/tgchannel/:id/:mpName?/:searchQueryType?": {
+        "path": "/tgchannel/:id/:mpName?/:searchQueryType?",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/tgchannel/lifeweek",
+        "parameters": {
+          "id": "公众号绑定频道 id",
+          "mpName": "欲筛选的公众号全名（URL-encoded，精确匹配），在频道订阅了多个公众号时可选用",
+          "searchQueryType": "搜索查询类型，见下表"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号（Telegram 频道来源）",
+        "maintainers": [
+          "LogicJake",
+          "Rongronggg9"
+        ],
+        "description": "| 搜索查询类型 | 将使用的搜索关键字 |            适用于           |\n| :----------: | :----------------: | :-------------------------: |\n|      `0`     |     (禁用搜索)     |       所有情况 (默认)       |\n|      `1`     |     公众号全名     | 未启用 efb-patch-middleware |\n|      `2`     |     #公众号全名    | 已启用 efb-patch-middleware |\n\n::: tip\n启用搜索有助于在订阅了过多公众号的频道里有效筛选，不易因为大量公众号同时推送导致一些公众号消息被遗漏，但必须正确选择搜索查询类型，否则会搜索失败。\n:::\n\n::: warning\n该方法需要通过 efb 进行频道绑定，具体操作见 <https://github.com/DIYgod/RSSHub/issues/2172>\n:::",
+        "location": "tgchannel.ts",
+        "module": () => import('@/routes/wechat/tgchannel.ts')
+      },
+      "/uread/:userid": {
+        "path": "/uread/:userid",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wechat/uread/shensing",
+        "parameters": {
+          "userid": "公众号的微信号, 可在 微信-公众号-更多资料 中找到。并不是所有的都支持，能不能用随缘"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公众号（优读来源）",
+        "maintainers": [
+          "kt286"
+        ],
+        "location": "uread.ts",
+        "module": () => import('@/routes/wechat/uread.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "微信小程序",
+    "url": "posts.careerengine.us",
+    "description": "::: tip\n公众号直接抓取困难，故目前提供几种间接抓取方案，请自行选择\n:::",
+    "lang": "zh-CN"
   },
   "weidian": {
     "routes": {
@@ -127877,8 +128319,8 @@ export default {
               "description": ""
             }
           ],
-          "requirePuppeteer": false,
-          "antiCrawler": false,
+          "requirePuppeteer": true,
+          "antiCrawler": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false,
@@ -128212,7 +128654,7 @@ export default {
               "description": "需要登录才能访问的专栏请配置雪球登录 Cookie。"
             }
           ],
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": true,
           "supportBT": false,
           "supportPodcast": false,
@@ -128796,8 +129238,8 @@ export default {
         },
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
+          "requirePuppeteer": true,
+          "antiCrawler": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
@@ -128975,6 +129417,10 @@ export default {
         "maintainers": [
           "g0ngjie"
         ],
+        "features": {
+          "requirePuppeteer": true,
+          "antiCrawler": true
+        },
         "url": "www.yilinzazhi.com",
         "description": "最近一期的文章汇总",
         "location": "latest.ts",
@@ -130723,7 +131169,7 @@ export default {
         },
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -132931,89 +133377,6 @@ export default {
     "description": "4KUP - Beautiful Girls Collection",
     "lang": "en"
   },
-  "500px": {
-    "routes": {
-      "/tribe/set/:id": {
-        "path": "/tribe/set/:id",
-        "categories": [
-          "picture"
-        ],
-        "view": 2,
-        "example": "/500px/tribe/set/f5de0b8aa6d54ec486f5e79616418001",
-        "parameters": {
-          "id": "部落 ID"
-        },
-        "name": "部落影集",
-        "maintainers": [
-          "TonyRL"
-        ],
-        "location": "tribe-set.tsx",
-        "module": () => import('@/routes/500px/tribe-set.tsx')
-      }
-    },
-    "apiRoutes": {},
-    "name": "500px 摄影社区",
-    "url": "500px.com.cn",
-    "lang": "zh-CN"
-  },
-  "56kog": {
-    "routes": {
-      "/class/:category?": {
-        "path": "/class/:category?",
-        "categories": [
-          "reading"
-        ],
-        "example": "/56kog/class/1_1",
-        "parameters": {
-          "category": "分类，见下表，默认为玄幻魔法"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "分类",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "description": "| [玄幻魔法](https://www.56kog.com/class/1_1.html) | [武侠修真](https://www.56kog.com/class/2_1.html) | [历史军事](https://www.56kog.com/class/4_1.html) | [侦探推理](https://www.56kog.com/class/5_1.html) | [网游动漫](https://www.56kog.com/class/6_1.html) |\n| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |\n| 1\\_1                                             | 2\\_1                                             | 4\\_1                                             | 5\\_1                                             | 6\\_1                                             |\n\n| [恐怖灵异](https://www.56kog.com/class/8_1.html) | [都市言情](https://www.56kog.com/class/3_1.html) | [科幻](https://www.56kog.com/class/7_1.html) | [女生小说](https://www.56kog.com/class/9_1.html) | [其他](https://www.56kog.com/class/10_1.html) |\n| ------------------------------------------------ | ------------------------------------------------ | -------------------------------------------- | ------------------------------------------------ | --------------------------------------------- |\n| 8\\_1                                             | 3\\_1                                             | 7\\_1                                         | 9\\_1                                             | 10\\_1                                         |",
-        "location": "class.ts",
-        "module": () => import('@/routes/56kog/class.ts')
-      },
-      "/top/:category?": {
-        "path": "/top/:category?",
-        "categories": [
-          "reading"
-        ],
-        "example": "/56kog/top/weekvisit",
-        "parameters": {
-          "category": "分类，见下表，默认为周点击榜"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "榜单",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "description": "| [周点击榜](https://www.56kog.com/top/weekvisit.html) | [总收藏榜](https://www.56kog.com/top/goodnum.html) | [最新 入库](https://www.56kog.com/top/postdate.html) |\n| ---------------------------------------------------- | -------------------------------------------------- | ---------------------------------------------------- |\n| weekvisit                                            | goodnum                                            | postdate                                             |",
-        "location": "top.ts",
-        "module": () => import('@/routes/56kog/top.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "明月中文网",
-    "url": "56kog.com",
-    "lang": "zh-CN"
-  },
   "6v123": {
     "routes": {
       "/:category{.+}?": {
@@ -134545,6 +134908,139 @@ export default {
     "name": "Asian to lick",
     "url": "asiantolick.com",
     "lang": "zh-CN"
+  },
+  "bandcamp": {
+    "routes": {
+      "/live": {
+        "path": "/live",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/bandcamp/live",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "bandcamp.com/live_schedule",
+              "bandcamp.com/live"
+            ]
+          }
+        ],
+        "name": "Upcoming Live Events",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "url": "bandcamp.com/live",
+        "location": "live.tsx",
+        "module": () => import('@/routes/bandcamp/live.tsx')
+      },
+      "/weekly": {
+        "path": "/weekly",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/bandcamp/weekly",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "bandcamp.com/"
+            ]
+          }
+        ],
+        "name": "Weekly",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "url": "bandcamp.com/",
+        "location": "weekly.tsx",
+        "module": () => import('@/routes/bandcamp/weekly.tsx')
+      },
+      "/artist/:artist": {
+        "path": "/artist/:artist",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/bandcamp/artist/radiohead",
+        "parameters": {
+          "artist": "Subdomain of the artist or label, such as `radiohead` in `https://radiohead.bandcamp.com`"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Artist Releases",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "description": "Releases on the music page of an artist or label, in the order the page shows them (newest first unless the artist reorders them). Returns the latest 10 by default, use `limit` for more. Artists on a custom domain still have a bandcamp.com subdomain.",
+        "location": "artist.tsx",
+        "module": () => import('@/routes/bandcamp/artist.tsx')
+      },
+      "/tag/:tag?": {
+        "path": "/tag/:tag?",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/bandcamp/tag/united-kingdom",
+        "parameters": {
+          "tag": "Tag, can be found in URL. All music by default."
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "bandcamp.com/tag/:tag",
+              "bandcamp.com/discover/:tag"
+            ],
+            "target": "/tag/:tag"
+          },
+          {
+            "source": [
+              "bandcamp.com/discover"
+            ],
+            "target": "/tag"
+          }
+        ],
+        "name": "Tag",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "location": "tag.tsx",
+        "module": () => import('@/routes/bandcamp/tag.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Bandcamp",
+    "url": "bandcamp.com",
+    "lang": "en"
   },
   "bangumi.tv": {
     "routes": {
@@ -137346,6 +137842,14 @@ export default {
         "maintainers": [
           "KarasuShin"
         ],
+        "features": {
+          "requireConfig": [
+            {
+              "name": "CARA_COOKIE",
+              "description": "A logged-in cara.app Cookie containing __Secure-next-auth.session-token. Obtain it from your own browser session; it is only sent to https://cara.app."
+            }
+          ]
+        },
         "radar": [
           {
             "source": [
@@ -139970,7 +140474,7 @@ export default {
             "target": "/group/topic/:id"
           }
         ],
-        "description": "订阅主帖正文和源页面首屏回帖。主帖标题或正文改变时产生新 GUID，以供阅读器识别更新。只看楼主使用源站的 author=1 页面。源站回帖按从早到晚排序，因此长帖尾页的新回复尚不在本路由范围内。日期保留源站创建时间，不冒充最后更新时间。",
+        "description": "订阅主帖正文和最新一页回帖。源站回帖按从早到晚排序，多页长帖取尾页的回帖。主帖标题或正文改变时产生新 GUID，以供阅读器识别更新。只看楼主使用源站的 author=1 页面。日期保留源站创建时间，不冒充最后更新时间。",
         "location": "other/group-topic.ts",
         "module": () => import('@/routes/douban/other/group-topic.ts')
       },
@@ -154540,6 +155044,120 @@ export default {
     ],
     "description": "Kleinanzeigen is a german marketplace for selling and buying locally, similar to Facebook Marketplace."
   },
+  "last.fm": {
+    "routes": {
+      "/top/:country?": {
+        "path": "/top/:country?",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/last.fm/top/spain",
+        "parameters": {
+          "country": "国家或地区, 需要符合`ISO 3166-1`的英文全称, 可参考`https://zh.wikipedia.org/wiki/ISO_3166-1二位字母代码#正式分配代码`"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "LASTFM_API_KEY",
+              "optional": false,
+              "description": "Last.fm API key"
+            }
+          ]
+        },
+        "radar": [
+          {
+            "source": [
+              "www.last.fm/charts"
+            ],
+            "target": "/top"
+          }
+        ],
+        "name": "站内 Top 榜单",
+        "maintainers": [
+          "hoilc"
+        ],
+        "location": "top.ts",
+        "module": () => import('@/routes/last.fm/top.ts')
+      },
+      "/loved/:user": {
+        "path": "/loved/:user",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/last.fm/loved/yeFoenix",
+        "parameters": {
+          "user": "Last.fm 用户名"
+        },
+        "features": {
+          "requirePuppeteer": true,
+          "requireConfig": [
+            {
+              "name": "LASTFM_API_KEY",
+              "optional": true,
+              "description": "Last.fm API key"
+            }
+          ]
+        },
+        "radar": [
+          {
+            "source": [
+              "www.last.fm/user/:user",
+              "www.last.fm/user/:user/*"
+            ]
+          }
+        ],
+        "name": "用户 Love 记录",
+        "description": "未配置 LASTFM\\_API\\_KEY 时使用公开页面，公开页面的时间精度为分钟。",
+        "maintainers": [
+          "hoilc"
+        ],
+        "location": "loved.ts",
+        "module": () => import('@/routes/last.fm/loved.ts')
+      },
+      "/recent/:user": {
+        "path": "/recent/:user",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/last.fm/recent/yeFoenix",
+        "parameters": {
+          "user": "Last.fm 用户名"
+        },
+        "features": {
+          "requirePuppeteer": true,
+          "requireConfig": [
+            {
+              "name": "LASTFM_API_KEY",
+              "optional": true,
+              "description": "Last.fm API key"
+            }
+          ]
+        },
+        "radar": [
+          {
+            "source": [
+              "www.last.fm/user/:user",
+              "www.last.fm/user/:user/*"
+            ]
+          }
+        ],
+        "name": "用户播放记录",
+        "description": "未配置 LASTFM\\_API\\_KEY 时使用公开页面，公开页面的时间精度为分钟。",
+        "maintainers": [
+          "hoilc"
+        ],
+        "location": "recent.ts",
+        "module": () => import('@/routes/last.fm/recent.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Last.fm",
+    "url": "www.last.fm",
+    "categories": [
+      "multimedia"
+    ],
+    "lang": "en"
+  },
   "leiphone": {
     "routes": {
       "/category/:catname": {
@@ -155927,7 +156545,7 @@ export default {
               "description": ""
             }
           ],
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -155937,7 +156555,7 @@ export default {
         "maintainers": [
           "ImSingee"
         ],
-        "description": "::: warning\nPersonalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::",
+        "description": "::: warning\nPersonalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::\n\nWhen Medium blocks article pages, their publicly visible previews may be returned.",
         "location": "following.ts",
         "module": () => import('@/routes/medium/following.ts')
       },
@@ -155957,7 +156575,7 @@ export default {
               "description": ""
             }
           ],
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -155967,7 +156585,7 @@ export default {
         "maintainers": [
           "ImSingee"
         ],
-        "description": "::: warning\nPersonalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::",
+        "description": "::: warning\nPersonalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::\n\nWhen Medium blocks article pages, their publicly visible previews may be returned.",
         "location": "for-you.ts",
         "module": () => import('@/routes/medium/for-you.ts')
       },
@@ -156014,7 +156632,7 @@ export default {
               "description": ""
             }
           ],
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -156024,7 +156642,7 @@ export default {
         "maintainers": [
           "ImSingee"
         ],
-        "description": "There are many tags, which can be obtained by clicking on a tag from the homepage and looking at the URL. For example, if the URL is `https://medium.com/?tag=web3`, then the tag is `web3`.\n\n::: warning\nPersonalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::",
+        "description": "There are many tags, which can be obtained by clicking on a tag from the homepage and looking at the URL. For example, if the URL is `https://medium.com/?tag=web3`, then the tag is `web3`.\n\n::: warning\nPersonalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::\n\nWhen Medium blocks article pages, their publicly visible previews may be returned.",
         "location": "tag.ts",
         "module": () => import('@/routes/medium/tag.ts')
       }
@@ -156036,6 +156654,33 @@ export default {
   },
   "metacritic": {
     "routes": {
+      "/release/:platform/:type?/:sort?": {
+        "path": "/release/:platform/:type?/:sort?",
+        "categories": [
+          "game"
+        ],
+        "example": "/metacritic/release/nintendo-switch/coming",
+        "parameters": {
+          "platform": "console platform, see below, `all` for every platform",
+          "type": "release type, default to `new`",
+          "sort": "sorting type, default to `date`"
+        },
+        "description": "Platforms supported:\n\n| PS5 | Xbox Series X | Switch 2          | Switch          | PC | Mobile | Meta Quest | PS4 | Xbox One | Wii U | 3DS | PS Vita |\n| --- | ------------- | ----------------- | --------------- | -- | ------ | ---------- | --- | -------- | ----- | --- | ------- |\n| ps5 | xbox-series-x | nintendo-switch-2 | nintendo-switch | pc | mobile | meta-quest | ps4 | xbox-one | wii-u | 3ds | ps-vita |\n\nRelease types, default to `new`:\n\n| New Releases | Coming Soon |\n| ------------ | ----------- |\n| new          | coming      |\n\nSorting types, default to `date`:\n\n| Date | Metacritic Score | User Score |\n| ---- | ---------------- | ---------- |\n| date | metascore        | userscore  |",
+        "radar": [
+          {
+            "source": [
+              "metacritic.com/browse/game/:platform"
+            ],
+            "target": "/release/:platform"
+          }
+        ],
+        "name": "Game Releases",
+        "maintainers": [
+          "HenryQW"
+        ],
+        "location": "release.ts",
+        "module": () => import('@/routes/metacritic/release.ts')
+      },
       "/game/:sort?/:filter?": {
         "path": "/game/:sort?/:filter?",
         "categories": [
@@ -161974,7 +162619,7 @@ export default {
         "parameters": {},
         "features": {
           "requireConfig": false,
-          "requirePuppeteer": false,
+          "requirePuppeteer": true,
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
@@ -163099,186 +163744,6 @@ export default {
     "url": "voronoiapp.com",
     "lang": "en"
   },
-  "wainao": {
-    "routes": {
-      "/topics/:id?": {
-        "path": "/topics/:id?",
-        "name": "主题",
-        "url": "wainao.me",
-        "maintainers": [
-          "shuiRong",
-          "nczitzk"
-        ],
-        "example": "/wainao/topics/hotspot",
-        "parameters": {
-          "id": {
-            "description": "主题 id，默认为 `hotspot`，即热点，可在对应主题页 URL 中找到",
-            "options": [
-              {
-                "label": "热点",
-                "value": "hotspot"
-              },
-              {
-                "label": "人物",
-                "value": "people"
-              },
-              {
-                "label": "身份",
-                "value": "identity"
-              },
-              {
-                "label": "政治",
-                "value": "politics"
-              },
-              {
-                "label": "社会",
-                "value": "society"
-              },
-              {
-                "label": "文化",
-                "value": "culture"
-              },
-              {
-                "label": "经济",
-                "value": "economics"
-              },
-              {
-                "label": "环境",
-                "value": "environment"
-              },
-              {
-                "label": "FUN",
-                "value": "fun"
-              }
-            ]
-          }
-        },
-        "description": "::: tip\n若订阅 [人物](https://www.wainao.me/topics/people)，网址为 `https://www.wainao.me/topics/people`，请截取 `https://www.wainao.me/topics/` 到末尾的部分 `people` 作为 `id` 参数填入，此时目标路由为 [`/wainao/topics/people`](https://rsshub.app/wainao/topics/people)。\n:::\n\n| [热点](https://www.wainao.me/topics/hotspot)        | [人物](https://www.wainao.me/topics/people)       | [身份](https://www.wainao.me/topics/identity)         | [政治](https://www.wainao.me/topics/politics)         | [社会](https://www.wainao.me/topics/society)        | [文化](https://www.wainao.me/topics/culture)        | [经济](https://www.wainao.me/topics/economics)          | [环境](https://www.wainao.me/topics/environment)            | [FUN](https://www.wainao.me/topics/fun)     |\n| --------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------- |\n| [hotspot](https://rsshub.app/wainao/topics/hotspot) | [people](https://rsshub.app/wainao/topics/people) | [identity](https://rsshub.app/wainao/topics/identity) | [politics](https://rsshub.app/wainao/topics/politics) | [society](https://rsshub.app/wainao/topics/society) | [culture](https://rsshub.app/wainao/topics/culture) | [economics](https://rsshub.app/wainao/topics/economics) | [environment](https://rsshub.app/wainao/topics/environment) | [fun](https://rsshub.app/wainao/topics/fun) |",
-        "categories": [
-          "new-media"
-        ],
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportRadar": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "www.wainao.me/topics/:id"
-            ],
-            "target": "/topics/:id"
-          },
-          {
-            "title": "热点",
-            "source": [
-              "www.wainao.me/topics/hotspot"
-            ],
-            "target": "/topics/hotspot"
-          },
-          {
-            "title": "人物",
-            "source": [
-              "www.wainao.me/topics/people"
-            ],
-            "target": "/topics/people"
-          },
-          {
-            "title": "身份",
-            "source": [
-              "www.wainao.me/topics/identity"
-            ],
-            "target": "/topics/identity"
-          },
-          {
-            "title": "政治",
-            "source": [
-              "www.wainao.me/topics/politics"
-            ],
-            "target": "/topics/politics"
-          },
-          {
-            "title": "社会",
-            "source": [
-              "www.wainao.me/topics/society"
-            ],
-            "target": "/topics/society"
-          },
-          {
-            "title": "文化",
-            "source": [
-              "www.wainao.me/topics/culture"
-            ],
-            "target": "/topics/culture"
-          },
-          {
-            "title": "经济",
-            "source": [
-              "www.wainao.me/topics/economics"
-            ],
-            "target": "/topics/economics"
-          },
-          {
-            "title": "环境",
-            "source": [
-              "www.wainao.me/topics/environment"
-            ],
-            "target": "/topics/environment"
-          },
-          {
-            "title": "FUN",
-            "source": [
-              "www.wainao.me/topics/fun"
-            ],
-            "target": "/topics/fun"
-          }
-        ],
-        "view": 0,
-        "location": "topics.tsx",
-        "module": () => import('@/routes/wainao/topics.tsx')
-      },
-      "/wainao-reads": {
-        "path": "/wainao-reads",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wainao/wainao-reads",
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "url": "www.wainao.me",
-        "name": "读",
-        "maintainers": [
-          "lucky13820"
-        ],
-        "radar": [
-          {
-            "source": [
-              "www.wainao.me",
-              "www.wainao.me/wainao-reads"
-            ],
-            "target": "/wainao-reads"
-          }
-        ],
-        "location": "wainao-reads.ts",
-        "module": () => import('@/routes/wainao/wainao-reads.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "歪脑",
-    "url": "wainao.me",
-    "description": "歪脑是为讲中文的年轻一代度身定制的新闻杂志。",
-    "lang": "zh-CN"
-  },
   "web": {
     "routes": {
       "/articles": {
@@ -163351,288 +163816,6 @@ export default {
     "name": "web.dev",
     "url": "web.dev",
     "lang": "en"
-  },
-  "wechat": {
-    "routes": {
-      "/wechat2rss/:id": {
-        "path": "/wechat2rss/:id",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/wechat2rss/5b925323244e9737c39285596c53e3a2f4a30774",
-        "parameters": {
-          "id": "公众号 id，打开 `https://wechat2rss.xlab.app/posts/list/`，在 URL 中找到 id；注意不是公众号页的 id，而是订阅的 id"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号（Wechat2RSS 来源）",
-        "maintainers": [
-          "TonyRL"
-        ],
-        "location": "wechat2rss.ts",
-        "module": () => import('@/routes/wechat/wechat2rss.ts')
-      },
-      "/announce": {
-        "path": "/announce",
-        "categories": [
-          "programming"
-        ],
-        "example": "/wechat/announce",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "mp.weixin.qq.com/cgi-bin/announce"
-            ]
-          }
-        ],
-        "name": "公众平台系统公告栏目",
-        "maintainers": [
-          "xyqfer"
-        ],
-        "url": "mp.weixin.qq.com/cgi-bin/announce",
-        "location": "announce.ts",
-        "module": () => import('@/routes/wechat/announce.ts')
-      },
-      "/ce/:id": {
-        "path": "/ce/:id",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/ce/595a5b14d7164e53908f1606",
-        "parameters": {
-          "id": "公众号 id，在 [CareerEngine](https://search.careerengine.us/) 搜索公众号，通过 URL 中找到对应的公众号 id"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "cimidata.com/a/:id"
-            ]
-          }
-        ],
-        "name": "公众号（CareerEngine 来源）",
-        "maintainers": [
-          "HenryQW"
-        ],
-        "location": "ce.ts",
-        "module": () => import('@/routes/wechat/ce.ts')
-      },
-      "/data258/:id?": {
-        "path": "/data258/:id?",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/data258/gh_cbbad4c1d33c",
-        "parameters": {
-          "id": "公众号 id 或分类 id，可在公众号页或分类页 URL 中找到；若略去，则抓取首页"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "mp.data258.com/",
-              "mp.data258.com/article/category/:id"
-            ]
-          }
-        ],
-        "name": "公众号（微阅读来源）",
-        "maintainers": [
-          "Rongronggg9"
-        ],
-        "url": "mp.data258.com/",
-        "description": "::: warning\n由于使用了一些针对反爬的缓解措施，本路由响应较慢。默认只抓取前 5 条，可通过 `?limit=` 改变（不推荐，容易被反爬）。\n\n该网站使用 IP 甄别访客，且应用严格的每日阅读量限额（约 15 次），请自建并确保正确配置缓存；如使用内存缓存而非 Redis 缓存，请增大缓存容量。该限额足够订阅至少 3 个公众号（假设公众号每日仅更新一次）；首页 / 分类页更新相当频繁，不推荐订阅。\n:::",
-        "location": "data258.ts",
-        "module": () => import('@/routes/wechat/data258.ts')
-      },
-      "/ershicimi/:id": {
-        "path": "/ershicimi/:id",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/ershicimi/813oxJOl",
-        "parameters": {
-          "id": "公众号id，打开公众号页，在 URL 中找到 id"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号（二十次幂来源）",
-        "maintainers": [
-          "sanmmm"
-        ],
-        "location": "ershcimi.ts",
-        "module": () => import('@/routes/wechat/ershcimi.ts')
-      },
-      "/mp/homepage/:biz/:hid/:cid?": {
-        "path": "/mp/homepage/:biz/:hid/:cid?",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/mp/homepage/MzA3MDM3NjE5NQ==/16",
-        "parameters": {
-          "biz": "公众号id",
-          "hid": "分页id",
-          "cid": "页内栏目"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号栏目 (非推送 & 历史消息)",
-        "maintainers": [
-          "MisteryMonster"
-        ],
-        "description": "只适用拥有首页模板 (分享链接带有 homepage) 的公众号。例如从公众号分享出来的链接为 `https://mp.weixin.qq.com/mp/homepage?__biz=MzA3MDM3NjE5NQ==&hid=4`，`biz` 为 `MzA3MDM3NjE5NQ==`，`hid` 为 `4`。\n\n有些页面里会有分栏， `cid` 可以通过元素选择器选中栏目查看`data-index`。如[链接](https://mp.weixin.qq.com/mp/homepage?__biz=MzA3MDM3NjE5NQ==\\&hid=4)里的 `京都职人` 栏目的 `cid` 为 `0`，`文艺时光` 栏目的 `cid` 为 `2`。如果不清楚的话最左边的栏目为`0`，其右方栏目依次递增 `1`。",
-        "location": "mp.ts",
-        "module": () => import('@/routes/wechat/mp.ts')
-      },
-      "/mp/msgalbum/:biz/:aid": {
-        "path": "/mp/msgalbum/:biz/:aid",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/mp/msgalbum/MzA3MDM3NjE5NQ==/1375870284640911361",
-        "parameters": {
-          "biz": "公众号id",
-          "aid": "Tag id"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号文章话题 Tag",
-        "maintainers": [
-          "MisteryMonster"
-        ],
-        "description": "一些公众号（如看理想）会在微信文章里添加 Tag ，点入 Tag 的链接如 `https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3MDM3NjE5NQ==&action=getalbum&album_id=1375870284640911361`，其中`biz` 为 `MzA3MDM3NjE5NQ==`，`aid` 为 `1375870284640911361`。",
-        "location": "msgalbum.ts",
-        "module": () => import('@/routes/wechat/msgalbum.ts')
-      },
-      "/sogou/:id": {
-        "path": "/sogou/:id",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/sogou/qimao0908",
-        "parameters": {
-          "id": "公众号 id, 打开 weixin.sogou.com 并搜索相应公众号， 在 URL 中找到 id"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号（搜狗来源）",
-        "maintainers": [
-          "IvanWng97",
-          "pseudoyu"
-        ],
-        "location": "sogou.ts",
-        "module": () => import('@/routes/wechat/sogou.ts')
-      },
-      "/tgchannel/:id/:mpName?/:searchQueryType?": {
-        "path": "/tgchannel/:id/:mpName?/:searchQueryType?",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/tgchannel/lifeweek",
-        "parameters": {
-          "id": "公众号绑定频道 id",
-          "mpName": "欲筛选的公众号全名（URL-encoded，精确匹配），在频道订阅了多个公众号时可选用",
-          "searchQueryType": "搜索查询类型，见下表"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号（Telegram 频道来源）",
-        "maintainers": [
-          "LogicJake",
-          "Rongronggg9"
-        ],
-        "description": "| 搜索查询类型 | 将使用的搜索关键字 |            适用于           |\n| :----------: | :----------------: | :-------------------------: |\n|      `0`     |     (禁用搜索)     |       所有情况 (默认)       |\n|      `1`     |     公众号全名     | 未启用 efb-patch-middleware |\n|      `2`     |     #公众号全名    | 已启用 efb-patch-middleware |\n\n::: tip\n启用搜索有助于在订阅了过多公众号的频道里有效筛选，不易因为大量公众号同时推送导致一些公众号消息被遗漏，但必须正确选择搜索查询类型，否则会搜索失败。\n:::\n\n::: warning\n该方法需要通过 efb 进行频道绑定，具体操作见 <https://github.com/DIYgod/RSSHub/issues/2172>\n:::",
-        "location": "tgchannel.ts",
-        "module": () => import('@/routes/wechat/tgchannel.ts')
-      },
-      "/uread/:userid": {
-        "path": "/uread/:userid",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/wechat/uread/shensing",
-        "parameters": {
-          "userid": "公众号的微信号, 可在 微信-公众号-更多资料 中找到。并不是所有的都支持，能不能用随缘"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "公众号（优读来源）",
-        "maintainers": [
-          "kt286"
-        ],
-        "location": "uread.ts",
-        "module": () => import('@/routes/wechat/uread.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "微信小程序",
-    "url": "posts.careerengine.us",
-    "description": "::: tip\n公众号直接抓取困难，故目前提供几种间接抓取方案，请自行选择\n:::",
-    "lang": "zh-CN"
   },
   "weibo": {
     "routes": {

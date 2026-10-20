@@ -79,14 +79,10 @@ export type RoutePath =
   | `/51read/article/:id`
   | `/52hrtt/:area?/:type?`
   | `/52hrtt/symposium/:id?/:classId?`
-  | `/56kog/class/:category?`
-  | `/56kog/top/:category?`
   | `/591/:country/rent/:query?`
   | `/5eplay/article`
   | `/5music/new-releases/:category?`
   | `/69shu/article/:id`
-  | `/6park/index/:id?/:type?/:keyword?`
-  | `/6park/news/:site?/:id?/:keyword?`
   | `/6v123/:category{.+}?`
   | `/6v123/latestMovies`
   | `/6v123/latestTVSeries`
@@ -127,7 +123,6 @@ export type RoutePath =
   | `/acfun/user/article/:uid`
   | `/acfun/user/video/:uid/:embed?`
   | `/acg17/post/all`
-  | `/acgvinyl/news`
   | `/acm/amturingaward`
   | `/acpaa/:id?/:name?`
   | `/acs/journal/:id`
@@ -306,6 +301,7 @@ export type RoutePath =
   | `/baijing/article`
   | `/bakamh/manga/:name`
   | `/bandbbs/:watch_type?/:list_type?`
+  | `/bandcamp/artist/:artist`
   | `/bandcamp/live`
   | `/bandcamp/tag/:tag?`
   | `/bandcamp/weekly`
@@ -531,7 +527,6 @@ export type RoutePath =
   | `/carnegieendowment/expert/:expert{.+}?`
   | `/carnegieendowment/region/:region?`
   | `/carousell/:region/:keyword`
-  | `/cartoonmad/comic/:id`
   | `/cas/cg/:caty?`
   | `/cas/genetics/:path{.+}`
   | `/cas/ia/yjs`
@@ -964,9 +959,6 @@ export type RoutePath =
   | `/dockerhub/tag/:owner/:image/:limits?`
   | `/docschina/weekly/:category?`
   | `/dol/announce/:owner?/:province?/:office?`
-  | `/domp4/detail/:id`
-  | `/domp4/latest_movie_bt`
-  | `/domp4/latest/:type?`
   | `/dongmanmanhua/:category/:name/:id`
   | `/dongqiudi/daily`
   | `/dongqiudi/player_news/:id`
@@ -1331,6 +1323,7 @@ export type RoutePath =
   | `/getitfree/tag/:id{.+}?`
   | `/gettr/user/:id`
   | `/gf-cn/news/:category?`
+  | `/gfqh/report/:variety?/:category?`
   | `/ghisler/whatsnew`
   | `/gigazine/en`
   | `/gihyo/list/group/:id`
@@ -1731,6 +1724,7 @@ export type RoutePath =
   | `/hubu/zhxy/:category{.+}?`
   | `/hudsonrivertrading/blog/:section?`
   | `/huggingface/activity/:user/likes`
+  | `/huggingface/activity/:user/posts`
   | `/huggingface/blog`
   | `/huggingface/blog-community/:sort?`
   | `/huggingface/blog-zh`
@@ -2182,6 +2176,8 @@ export type RoutePath =
   | `/loongarch/post/:type?`
   | `/lorientlejour/:category?`
   | `/lovelive-anime/news/:abbr?/:category?/:option?`
+  | `/lowendtalk/discussion/:id`
+  | `/lowendtalk/profile/:type/:username`
   | `/lrepacks/:category?`
   | `/lsnu/jiaowc/tzgg/:category?`
   | `/ltaaa/article`
@@ -2275,6 +2271,7 @@ export type RoutePath =
   | `/meta/ai/blog`
   | `/metacritic/game/:sort?/:filter?`
   | `/metacritic/movie/:sort?/:filter?`
+  | `/metacritic/release/:platform/:type?/:sort?`
   | `/metacritic/tv/:sort?/:filter?`
   | `/meteoblue/weathernews`
   | `/meteor/:board?`
@@ -2382,6 +2379,7 @@ export type RoutePath =
   | `/mysql/release/:version?`
   | `/naceweb/blog/:sort?`
   | `/namoc/zhanlan`
+  | `/nanhua/index-research/:category?`
   | `/nanhua/report/:type1/:type2`
   | `/nankai/ai/:type?`
   | `/nankai/cc/:type?`
@@ -2661,6 +2659,7 @@ export type RoutePath =
   | `/outagereport/:name/:count?`
   | `/p-articles/contributors/:author`
   | `/p-articles/section/:section`
+  | `/p-bandai/new`
   | `/pacilution/latest`
   | `/panewslab/author/:id`
   | `/panewslab/column/:id`
@@ -2773,6 +2772,7 @@ export type RoutePath =
   | `/projectjav/actress/:id`
   | `/proletar/:type?/:id?`
   | `/ps/monthly-games`
+  | `/ps/price/:id/:locale?`
   | `/ps/trophy/:id`
   | `/psnine/`
   | `/psnine/game`
@@ -2914,6 +2914,7 @@ export type RoutePath =
   | `/resonac/products`
   | `/reuters/:category/:topic?`
   | `/reuters/investigates`
+  | `/reuters/my-news`
   | `/rfa/:language?/:channel?/:subChannel?`
   | `/rfi/:path{.+}?`
   | `/right/forum/:id?`
